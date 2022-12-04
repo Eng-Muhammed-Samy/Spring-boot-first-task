@@ -2,7 +2,7 @@ package com.fawry.ecommerceapp.controller;
 
 import com.fawry.ecommerceapp.entity.Order;
 import com.fawry.ecommerceapp.model.OrderModel;
-import com.fawry.ecommerceapp.service.OrderService;
+import com.fawry.ecommerceapp.service.implementation.OrderServiceImple;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +13,7 @@ import java.util.List;
 public class OrderController {
 
     @Autowired
-    private OrderService orderService;
+    private OrderServiceImple orderService;
 
     @PostMapping
     public Order addNewOrder(@RequestBody Order order){
@@ -25,7 +25,7 @@ public class OrderController {
     }
     @GetMapping("/{id}")
     public OrderModel findOrderById(@PathVariable Long id){
-        Order order = orderService.findById(id).get();
+        Order order = orderService.findOrderById(id).get();
         OrderModel orderModel = new OrderModel();
         orderModel.setId(order.getId());
         orderModel.setShipping(order.getShipping());

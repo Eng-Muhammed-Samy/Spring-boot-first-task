@@ -1,37 +1,20 @@
 package com.fawry.ecommerceapp.service;
 
+import com.fawry.ecommerceapp.entity.Product;
 import com.fawry.ecommerceapp.entity.User;
-import com.fawry.ecommerceapp.repository.UserRepo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
-public class UserService {
+public interface UserService {
 
-    @Autowired
-    private UserRepo userRepo;
+     User insert(User user);
 
-    public User addNewUser(User user){
-        return userRepo.save(user);
-    }
+     List<User> findAllUsers();
 
-    public User update(User user){
-        return userRepo.save(user);
-    }
+     Optional<User> findUserById(Long id);
 
-    public Optional<User> findById(Long id) {
-        return userRepo.findById(id);
-    }
+     User update(User product);
 
-    public List<User> findAllUsers(){
-        return userRepo.findAll();
-    }
-
-    public String delete(Long id){
-        userRepo.deleteById(id);
-        return "deleted";
-    }
+     String delete(Long id);
 }

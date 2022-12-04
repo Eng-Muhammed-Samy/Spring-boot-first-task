@@ -2,8 +2,8 @@ package com.fawry.ecommerceapp.config;
 
 import com.fawry.ecommerceapp.entity.Order;
 import com.fawry.ecommerceapp.entity.Product;
-import com.fawry.ecommerceapp.service.OrderService;
-import com.fawry.ecommerceapp.service.ProductService;
+import com.fawry.ecommerceapp.service.implementation.OrderServiceImple;
+import com.fawry.ecommerceapp.service.implementation.ProductServiceImple;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -15,10 +15,10 @@ import java.util.Set;
 public class AppStartup implements CommandLineRunner {
 
     @Autowired
-    private OrderService orderService;
+    private OrderServiceImple orderService;
 
     @Autowired
-    private ProductService productService;
+    private ProductServiceImple productService;
 
     @Override
     public void run(String... args) throws Exception {

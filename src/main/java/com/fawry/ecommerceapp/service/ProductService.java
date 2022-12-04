@@ -1,38 +1,20 @@
 package com.fawry.ecommerceapp.service;
 
+import com.fawry.ecommerceapp.entity.Order;
 import com.fawry.ecommerceapp.entity.Product;
-import com.fawry.ecommerceapp.model.ProductModel;
-import com.fawry.ecommerceapp.repository.ProductRepo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
-public class ProductService {
-    @Autowired
-    private ProductRepo productRepo;
+public interface ProductService {
 
-    public Product insert(Product product){
-        return productRepo.save(product);
-    }
+     Product insert(Product product);
 
-    public List<Product> findAll(){
-        return productRepo.findAll();
-    }
+     List<Product> findAllProducts();
 
-    public Optional<Product> findById(Long id){
-        return productRepo.findById(id);
-    }
+     Optional<Product> findProductById(Long id);
 
-    Product update(Product product) {
-        return productRepo.save(product);
-    }
+     Product update(Product product);
 
-    String delete(Long id){
-         productRepo.deleteById(id);
-         return "deleted";
-    }
+     String delete(Long id);
 }

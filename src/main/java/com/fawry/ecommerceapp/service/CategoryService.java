@@ -1,37 +1,20 @@
 package com.fawry.ecommerceapp.service;
 
 import com.fawry.ecommerceapp.entity.Category;
-import com.fawry.ecommerceapp.repository.CategoryRepo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.fawry.ecommerceapp.entity.Product;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
-public class CategoryService {
+public interface CategoryService {
 
-    @Autowired
-    private CategoryRepo categoryRepo;
+     Category insert(Category category);
 
-    public Category insert(Category category){
-        return categoryRepo.save(category);
-    }
+     List<Category> findAllCategories();
 
-    public Optional<Category> findCategoryById(Long id){
-        return categoryRepo.findById(id);
-    }
+     Optional<Category> findCategoryById(Long id);
 
-    public String delete(Long id){
-        categoryRepo.deleteById(id);
-        return "deleted";
-    }
+     Category update(Category category);
 
-    public Category update(Category category){
-        return categoryRepo.save(category);
-    }
-
-    public List<Category> findAllCategories(){
-        return categoryRepo.findAll();
-    }
+     String delete(Long id);
 }

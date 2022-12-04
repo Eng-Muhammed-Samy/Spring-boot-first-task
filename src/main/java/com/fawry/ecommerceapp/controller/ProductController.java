@@ -3,7 +3,7 @@ package com.fawry.ecommerceapp.controller;
 import com.fawry.ecommerceapp.entity.Product;
 import com.fawry.ecommerceapp.model.OrderModel;
 import com.fawry.ecommerceapp.model.ProductModel;
-import com.fawry.ecommerceapp.service.ProductService;
+import com.fawry.ecommerceapp.service.implementation.ProductServiceImple;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +13,7 @@ import java.util.*;
 @RequestMapping("/product")
 public class ProductController {
     @Autowired
-    private ProductService productService;
+    private ProductServiceImple productService;
 
     @PostMapping
     public Product addNewProduct(@RequestBody Product product){
@@ -22,12 +22,12 @@ public class ProductController {
 
     @GetMapping
     public List<Product> getAllProducts(){
-        return productService.findAll();
+        return productService.findAllProducts();
     }
 
     @GetMapping("/{id}")
     public ProductModel findOneProduct(@PathVariable Long id){
-        Product product = productService.findById(id).get();
+        Product product = productService.findProductById(id).get();
 
         ProductModel productModel = new ProductModel();
         Set<OrderModel> orderModelList = new HashSet<>();

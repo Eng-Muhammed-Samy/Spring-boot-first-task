@@ -2,35 +2,19 @@ package com.fawry.ecommerceapp.service;
 
 import com.fawry.ecommerceapp.entity.Customer;
 import com.fawry.ecommerceapp.repository.CustomerRepo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
-public class CustomerService {
-    @Autowired
-    private CustomerRepo customerRepo;
+public interface CustomerService {
 
-    public Customer insert(Customer customer){
-        return customerRepo.save(customer);
-    }
+     Customer insert(Customer customer);
 
-    public List<Customer> findAllCustomer(){
-        return customerRepo.findAll();
-    }
+     List<Customer> findAllCustomer();
 
-    public Optional<Customer> findCustomerById(Long id){
-        return customerRepo.findById(id);
-    }
+     Optional<Customer> findCustomerById(Long id);
 
-    public Customer update(Customer customer){
-        return customerRepo.save(customer);
-    }
+     Customer update(Customer customer);
 
-    public String delete(Long id){
-        customerRepo.findById(id);
-        return "deleted";
-    }
+     String delete(Long id);
 }

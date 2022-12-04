@@ -1,38 +1,20 @@
 package com.fawry.ecommerceapp.service;
 
+import com.fawry.ecommerceapp.entity.Customer;
 import com.fawry.ecommerceapp.entity.Order;
-import com.fawry.ecommerceapp.entity.Product;
-import com.fawry.ecommerceapp.repository.OrderRepo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
-public class OrderService {
+public interface OrderService {
 
-    @Autowired
-    private OrderRepo orderRepo;
+     Order insert(Order order);
 
-    public Order insert(Order order){
-        return  orderRepo.save(order);
-    }
+     List<Order> findAllOrders();
 
-    public List<Order> findAllOrders(){
-        return orderRepo.findAll();
-    }
+     Optional<Order> findOrderById(Long id);
 
-    public Optional<Order> findById(Long id){
-        return orderRepo.findById(id);
-    }
+     Order update(Order order);
 
-    public Order update(Order order){
-        return orderRepo.save(order);
-    }
-
-    public String delete(Long id){
-         orderRepo.deleteById(id);
-         return "deleted";
-    }
+     String delete(Long id);
 }

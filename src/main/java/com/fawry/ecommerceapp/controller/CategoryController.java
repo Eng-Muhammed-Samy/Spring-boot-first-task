@@ -1,7 +1,7 @@
 package com.fawry.ecommerceapp.controller;
 
 import com.fawry.ecommerceapp.entity.Category;
-import com.fawry.ecommerceapp.service.CategoryService;
+import com.fawry.ecommerceapp.service.implementation.CategoryServiceImple;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +13,7 @@ import java.util.Optional;
 public class CategoryController {
 
     @Autowired
-    private CategoryService categoryService;
+    private CategoryServiceImple categoryService;
 
     @PostMapping
     public Category insertCategory(@RequestBody Category category){
