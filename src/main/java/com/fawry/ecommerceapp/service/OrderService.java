@@ -26,4 +26,13 @@ public class OrderService {
     public Optional<Order> findById(Long id){
         return orderRepo.findById(id);
     }
+
+    public Order update(Order order){
+        return orderRepo.save(order);
+    }
+
+    public String delete(Long id){
+         orderRepo.deleteById(id);
+         return "deleted";
+    }
 }
