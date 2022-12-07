@@ -1,6 +1,7 @@
 package com.fawry.ecommerceapp.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fawry.ecommerceapp.base.BaseEntity;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -9,12 +10,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "fawry_orders")
-public class Order  {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
-
+public class Order extends BaseEntity<Long> {
     @Column(name = "shipping", precision = 0)
     private Double shipping;
     @Column(name = "taxes", precision = 0)
@@ -30,14 +26,6 @@ public class Order  {
     )
     @JsonIgnore
     private Set<Product> products =new HashSet<>();
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Double getShipping() {
         return shipping;

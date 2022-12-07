@@ -25,7 +25,7 @@ public class OrderController {
     }
     @GetMapping("/{id}")
     public OrderModel findOrderById(@PathVariable Long id){
-        Order order = orderService.findOrderById(id).get();
+        Order order = orderService.findOrderById(id);
         OrderModel orderModel = new OrderModel();
         orderModel.setId(order.getId());
         orderModel.setShipping(order.getShipping());

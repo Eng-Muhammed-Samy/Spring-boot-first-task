@@ -12,7 +12,7 @@ public interface OrderService {
 
      List<Order> findAllOrders();
 
-     Optional<Order> findOrderById(Long id);
+     Order findOrderById(Long id);
 
      Order update(Order order);
 

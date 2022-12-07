@@ -1,6 +1,7 @@
 package com.fawry.ecommerceapp.service.implementation;
 
 import com.fawry.ecommerceapp.entity.Customer;
+import com.fawry.ecommerceapp.error.exceptions.RecordNotFoundException;
 import com.fawry.ecommerceapp.repository.CustomerRepo;
 import com.fawry.ecommerceapp.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,12 @@ public class CustomerServiceImple implements CustomerService {
         return customerRepo.findAll();
     }
 
-    public Optional<Customer> findCustomerById(Long id){
-        return customerRepo.findById(id);
+    public Customer findCustomerById(Long id){
+        Optional<Customer> customer = customerRepo.findById(id);
+        if (customer.isPresent()){
+            return customer.get();
+        }
+        throw new RecordNotFoundException("Customer Not FOund");
     }
 
     public Customer update(Customer customer){

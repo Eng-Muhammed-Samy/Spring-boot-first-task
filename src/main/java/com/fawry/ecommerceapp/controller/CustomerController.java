@@ -25,7 +25,7 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Customer> findCustomerById(Long id){
+    public Customer findCustomerById(Long id){
         return customerService.findCustomerById(id);
     }
 

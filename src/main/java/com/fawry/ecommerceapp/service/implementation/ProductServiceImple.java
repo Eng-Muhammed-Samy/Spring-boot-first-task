@@ -1,6 +1,7 @@
 package com.fawry.ecommerceapp.service.implementation;
 
 import com.fawry.ecommerceapp.entity.Product;
+import com.fawry.ecommerceapp.error.exceptions.RecordNotFoundException;
 import com.fawry.ecommerceapp.model.ProductModel;
 import com.fawry.ecommerceapp.repository.ProductRepo;
 import com.fawry.ecommerceapp.service.ProductService;
@@ -24,8 +25,12 @@ public class ProductServiceImple implements ProductService {
         return productRepo.findAll();
     }
 
-    public Optional<Product> findProductById(Long id){
-        return productRepo.findById(id);
+    public Product findProductById(Long id){
+        Optional<Product> product = productRepo.findById(id);
+        if (product.isPresent()){
+            return product.get();
+        }
+        throw new RecordNotFoundException("Product Not Found");
     }
 
     public Product update(Product product) {

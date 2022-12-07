@@ -12,7 +12,7 @@ public interface CustomerService {
 
      List<Customer> findAllCustomer();
 
-     Optional<Customer> findCustomerById(Long id);
+     Customer findCustomerById(Long id);
 
      Customer update(Customer customer);
 

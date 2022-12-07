@@ -1,6 +1,8 @@
 package com.fawry.ecommerceapp.controller;
 
 import com.fawry.ecommerceapp.entity.Product;
+import com.fawry.ecommerceapp.mapper.OrderMapper;
+import com.fawry.ecommerceapp.mapper.ProductMapper;
 import com.fawry.ecommerceapp.model.OrderModel;
 import com.fawry.ecommerceapp.model.ProductModel;
 import com.fawry.ecommerceapp.service.implementation.ProductServiceImple;
@@ -27,27 +29,12 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public ProductModel findOneProduct(@PathVariable Long id){
-        Product product = productService.findProductById(id).get();
+        Product product = productService.findProductById(id);
 
-        ProductModel productModel = new ProductModel();
         Set<OrderModel> orderModelList = new HashSet<>();
-        product.getOrders().forEach(order -> {
-            OrderModel orderModel = new OrderModel();
-            orderModel.setId(order.getId());
-            orderModel.setShipping(order.getShipping());
-            orderModel.setTaxes(order.getTaxes());
-            orderModel.setTotalSalary(order.getTotalSalary());
-            orderModelList.add(orderModel);
-        } );
+        //orderMapping to orderDto
+        product.getOrders().forEach(order -> orderModelList.add(OrderMapper.mapper(order)));
 
-        productModel.setId(product.getId());
-        productModel.setNameEn(product.getNameEn());
-        productModel.setNameAr(product.getNameAr());
-        productModel.setImgPath(product.getImgPath());
-        productModel.setPrice(product.getPrice());
-        productModel.setQuantity(product.getQuantity());
-//        productModel.setOrders(orderModelList);
-
-        return productModel;
+        return ProductMapper.mapper(product);
     }
 }

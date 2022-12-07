@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin
+//@CrossOrigin
 public class UserController {
     @Autowired
     private UserServiceImple userService;
@@ -26,7 +26,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public Optional<User> findUserById(@PathVariable Long id){
+    public User findUserById(@PathVariable Long id){
         return userService.findUserById(id);
     }
     @PutMapping

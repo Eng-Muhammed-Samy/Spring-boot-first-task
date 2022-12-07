@@ -1,6 +1,7 @@
 package com.fawry.ecommerceapp.service.implementation;
 
 import com.fawry.ecommerceapp.entity.User;
+import com.fawry.ecommerceapp.error.exceptions.RecordNotFoundException;
 import com.fawry.ecommerceapp.repository.UserRepo;
 import com.fawry.ecommerceapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,12 @@ public class UserServiceImple implements UserService {
         return userRepo.save(user);
     }
 
-    public Optional<User> findUserById(Long id) {
-        return userRepo.findById(id);
+    public User findUserById(Long id) {
+        Optional<User> user = userRepo.findById(id);
+        if (user.isPresent()){
+            return user.get();
+        }
+        throw new RecordNotFoundException("User Not Found");
     }
 
     public List<User> findAllUsers(){
