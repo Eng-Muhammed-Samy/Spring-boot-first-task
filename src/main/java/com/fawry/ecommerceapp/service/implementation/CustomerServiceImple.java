@@ -4,6 +4,7 @@ import com.fawry.ecommerceapp.entity.Customer;
 import com.fawry.ecommerceapp.error.exceptions.RecordNotFoundException;
 import com.fawry.ecommerceapp.repository.CustomerRepo;
 import com.fawry.ecommerceapp.service.CustomerService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +12,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class CustomerServiceImple implements CustomerService {
-    @Autowired
-    private CustomerRepo customerRepo;
+    private final CustomerRepo customerRepo;
 
     public Customer insert(Customer customer){
         return customerRepo.save(customer);

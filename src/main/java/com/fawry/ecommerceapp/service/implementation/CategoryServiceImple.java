@@ -4,6 +4,7 @@ import com.fawry.ecommerceapp.entity.Category;
 import com.fawry.ecommerceapp.error.exceptions.RecordNotFoundException;
 import com.fawry.ecommerceapp.repository.CategoryRepo;
 import com.fawry.ecommerceapp.service.CategoryService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,10 +12,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class CategoryServiceImple implements CategoryService {
 
-    @Autowired
-    private CategoryRepo categoryRepo;
+    private final CategoryRepo categoryRepo;
 
     public Category insert(Category category){
         return categoryRepo.save(category);

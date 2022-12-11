@@ -5,6 +5,7 @@ import com.fawry.ecommerceapp.entity.Product;
 import com.fawry.ecommerceapp.error.exceptions.RecordNotFoundException;
 import com.fawry.ecommerceapp.repository.OrderRepo;
 import com.fawry.ecommerceapp.service.OrderService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +13,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class OrderServiceImple implements OrderService {
 
-    @Autowired
-    private OrderRepo orderRepo;
+    private final OrderRepo orderRepo;
 
     public Order insert(Order order){
         return  orderRepo.save(order);
