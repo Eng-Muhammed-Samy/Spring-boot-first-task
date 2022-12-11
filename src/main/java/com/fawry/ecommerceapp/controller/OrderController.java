@@ -3,6 +3,7 @@ package com.fawry.ecommerceapp.controller;
 import com.fawry.ecommerceapp.entity.Order;
 import com.fawry.ecommerceapp.model.OrderModel;
 import com.fawry.ecommerceapp.service.implementation.OrderServiceImple;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,10 +11,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/order")
+@RequiredArgsConstructor
 public class OrderController {
-
-    @Autowired
-    private OrderServiceImple orderService;
+    private final OrderServiceImple orderService;
 
     @PostMapping
     public Order addNewOrder(@RequestBody Order order){

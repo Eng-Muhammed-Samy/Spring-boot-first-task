@@ -2,6 +2,7 @@ package com.fawry.ecommerceapp.controller;
 
 import com.fawry.ecommerceapp.entity.Customer;
 import com.fawry.ecommerceapp.service.implementation.CustomerServiceImple;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,9 +11,9 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/customer")
+@RequiredArgsConstructor
 public class CustomerController {
-    @Autowired
-    private CustomerServiceImple customerService;
+    private final CustomerServiceImple customerService;
 
     @PostMapping
     public Customer insertNewCustomer(@RequestBody Customer customer){

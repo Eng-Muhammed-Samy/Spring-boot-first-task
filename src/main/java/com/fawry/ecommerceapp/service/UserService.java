@@ -16,5 +16,7 @@ public interface UserService {
 
      User update(User product);
 
+     User finUserByEmail(String email);
+
      String delete(Long id);
 }

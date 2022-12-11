@@ -2,6 +2,7 @@ package com.fawry.ecommerceapp.controller;
 
 import com.fawry.ecommerceapp.entity.Category;
 import com.fawry.ecommerceapp.service.implementation.CategoryServiceImple;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,10 +11,9 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/category")
+@RequiredArgsConstructor
 public class CategoryController {
-
-    @Autowired
-    private CategoryServiceImple categoryService;
+    private final CategoryServiceImple categoryService;
 
     @PostMapping
     public Category insertCategory(@RequestBody Category category){

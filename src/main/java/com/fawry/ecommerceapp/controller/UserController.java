@@ -2,6 +2,7 @@ package com.fawry.ecommerceapp.controller;
 
 import com.fawry.ecommerceapp.entity.User;
 import com.fawry.ecommerceapp.service.implementation.UserServiceImple;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,10 +11,9 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/user")
-//@CrossOrigin
+@RequiredArgsConstructor
 public class UserController {
-    @Autowired
-    private UserServiceImple userService;
+    private final UserServiceImple userService;
 
     @PostMapping
     public User addUser(@RequestBody User user){

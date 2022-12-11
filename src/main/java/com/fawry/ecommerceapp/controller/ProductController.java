@@ -6,6 +6,7 @@ import com.fawry.ecommerceapp.mapper.ProductMapper;
 import com.fawry.ecommerceapp.model.OrderModel;
 import com.fawry.ecommerceapp.model.ProductModel;
 import com.fawry.ecommerceapp.service.implementation.ProductServiceImple;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,9 +14,9 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/product")
+@RequiredArgsConstructor
 public class ProductController {
-    @Autowired
-    private ProductServiceImple productService;
+    private final ProductServiceImple productService;
 
     @PostMapping
     public Product addNewProduct(@RequestBody Product product){
