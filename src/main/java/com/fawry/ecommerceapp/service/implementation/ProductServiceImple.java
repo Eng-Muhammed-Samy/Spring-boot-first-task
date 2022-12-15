@@ -26,10 +26,10 @@ public class ProductServiceImple implements ProductService {
         return productRepo.findAll();
     }
 
-    public Product findProductById(Long id){
+    public Optional<Product> findProductById(Long id){
         Optional<Product> product = productRepo.findById(id);
         if (product.isPresent()){
-            return product.get();
+            return product;
         }
         throw new RecordNotFoundException("Product Not Found");
     }

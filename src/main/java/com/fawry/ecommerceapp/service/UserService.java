@@ -1,22 +1,20 @@
 package com.fawry.ecommerceapp.service;
 
-import com.fawry.ecommerceapp.entity.Product;
-import com.fawry.ecommerceapp.entity.User;
+import com.fawry.ecommerceapp.entity.NormalUser;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface UserService {
 
-     User insert(User user);
+     NormalUser insert(NormalUser normalUser);
 
-     List<User> findAllUsers();
+     List<NormalUser> findAllUsers();
 
-     User findUserById(Long id);
+     NormalUser findUserById(Long id);
 
-     User update(User product);
+     NormalUser update(NormalUser product);
 
-     User finUserByEmail(String email);
+     NormalUser finUserByEmail(String email);
 
      String delete(Long id);
 }

@@ -3,17 +3,14 @@ package com.fawry.ecommerceapp.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fawry.ecommerceapp.base.BaseEntity;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "fawry_orders")
-@Setter
-@Getter
+@Data
 public class Order extends BaseEntity<Long> {
     @Column(name = "shipping", precision = 0)
     private Double shipping;

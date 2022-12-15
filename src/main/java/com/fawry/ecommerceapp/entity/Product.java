@@ -6,8 +6,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -15,8 +14,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "fawry_products")
-@Setter
-@Getter
+@Data
 public class Product extends BaseEntity<Long> {
     @Column
     @NotBlank
@@ -37,7 +35,7 @@ public class Product extends BaseEntity<Long> {
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "order_id")
     )
-    private Set<Order> orders =new HashSet<>();
+    private Set<Order> orders ;
     @ManyToOne
     private Category category;
 

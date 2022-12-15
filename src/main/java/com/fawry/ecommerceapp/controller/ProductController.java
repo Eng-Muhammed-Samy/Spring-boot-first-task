@@ -30,7 +30,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public ProductModel findOneProduct(@PathVariable Long id){
-        Product product = productService.findProductById(id);
+        Product product = productService.findProductById(id).get();
 
         Set<OrderModel> orderModelList = new HashSet<>();
         //orderMapping to orderDto

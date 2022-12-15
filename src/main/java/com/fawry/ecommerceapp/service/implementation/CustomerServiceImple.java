@@ -29,7 +29,7 @@ public class CustomerServiceImple implements CustomerService {
         if (customer.isPresent()){
             return customer.get();
         }
-        throw new RecordNotFoundException("Customer Not FOund");
+        throw new RecordNotFoundException("Customer Not Found");
     }
 
     public Customer update(Customer customer){

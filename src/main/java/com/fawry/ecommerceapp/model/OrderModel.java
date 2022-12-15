@@ -1,13 +1,12 @@
 package com.fawry.ecommerceapp.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fawry.ecommerceapp.entity.Product;
-import jakarta.persistence.*;
+
+import lombok.Data;
 
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Set;
 
+@Data
 public class OrderModel implements Serializable {
     private Long id;
     private Double shipping;
@@ -16,45 +15,6 @@ public class OrderModel implements Serializable {
 
     private Double totalSalary;
 
-    private Set<ProductModel> products =new HashSet<>();
+    private Set<ProductModel> products;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Double getShipping() {
-        return shipping;
-    }
-
-    public void setShipping(Double shipping) {
-        this.shipping = shipping;
-    }
-
-    public Double getTaxes() {
-        return taxes;
-    }
-
-    public void setTaxes(Double taxes) {
-        this.taxes = taxes;
-    }
-
-    public Double getTotalSalary() {
-        return totalSalary;
-    }
-
-    public void setTotalSalary(Double totalSalary) {
-        this.totalSalary = totalSalary;
-    }
-
-    public Set<ProductModel> getProducts() {
-        return products;
-    }
-
-    public void setProducts(Set<ProductModel> products) {
-        this.products = products;
-    }
 }

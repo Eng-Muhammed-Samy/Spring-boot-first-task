@@ -1,8 +1,7 @@
 package com.fawry.ecommerceapp.base;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -14,8 +13,7 @@ import java.time.LocalDateTime;
 
 @MappedSuperclass
 @EntityListeners({AuditingEntityListener.class})
-@Setter
-@Getter
+@Data
 public class BaseEntity <ID extends Serializable> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

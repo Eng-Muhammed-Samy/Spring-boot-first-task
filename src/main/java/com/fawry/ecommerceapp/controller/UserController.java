@@ -1,13 +1,11 @@
 package com.fawry.ecommerceapp.controller;
 
-import com.fawry.ecommerceapp.entity.User;
+import com.fawry.ecommerceapp.entity.NormalUser;
 import com.fawry.ecommerceapp.service.implementation.UserServiceImple;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/user")
@@ -16,22 +14,22 @@ public class UserController {
     private final UserServiceImple userService;
 
     @PostMapping
-    public User addUser(@RequestBody User user){
-        return userService.insert(user);
+    public NormalUser addUser(@RequestBody NormalUser normalUser){
+        return userService.insert(normalUser);
     }
 
     @GetMapping
-    public List<User> getAllUsers(){
+    public List<NormalUser> getAllUsers(){
         return userService.findAllUsers();
     }
 
     @GetMapping("/{id}")
-    public User findUserById(@PathVariable Long id){
+    public NormalUser findUserById(@PathVariable Long id){
         return userService.findUserById(id);
     }
     @PutMapping
-    public User updateUser(@RequestBody User user){
-        return userService.update(user);
+    public NormalUser updateUser(@RequestBody NormalUser normalUser){
+        return userService.update(normalUser);
     }
 
     @DeleteMapping("/{id}")

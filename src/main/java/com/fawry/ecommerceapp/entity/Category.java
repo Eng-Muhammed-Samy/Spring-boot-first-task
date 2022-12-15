@@ -2,15 +2,14 @@ package com.fawry.ecommerceapp.entity;
 
 import com.fawry.ecommerceapp.base.BaseEntity;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+
 
 import java.util.Set;
 
 @Entity
 @Table(name = "fawry_category")
-@Setter
-@Getter
+@Data
 public class Category extends BaseEntity<Long> {
     @Column
     private String name;
