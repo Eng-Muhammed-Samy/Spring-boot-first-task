@@ -10,7 +10,10 @@ import lombok.Data;
 @Entity
 @Table(name = "fawry_user")
 @Data
-public class NormalUser extends BaseEntity<Long> {
+public class User extends BaseEntity<Long> {
+
+    private String userName;
+
     @Column
     @Email
     private String email;

@@ -13,5 +13,5 @@ public class Customer extends BaseEntity<Long> {
     @Column
     private String imgPath;
     @OneToOne
-    private NormalUser normalUser;
+    private User user;
 }

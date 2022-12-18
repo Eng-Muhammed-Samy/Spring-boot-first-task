@@ -17,7 +17,8 @@ import java.util.*;
 @RequiredArgsConstructor
 public class ProductController {
     private final ProductServiceImple productService;
-
+    private final ProductMapper productMapper;
+    private final OrderMapper orderMapper;
     @PostMapping
     public Product addNewProduct(@RequestBody Product product){
         return productService.insert(product);
@@ -34,8 +35,8 @@ public class ProductController {
 
         Set<OrderModel> orderModelList = new HashSet<>();
         //orderMapping to orderDto
-        product.getOrders().forEach(order -> orderModelList.add(OrderMapper.mapper(order)));
+        product.getOrders().forEach(order -> orderModelList.add(orderMapper.mapper(order)));
 
-        return ProductMapper.mapper(product);
+        return productMapper.mapper(product);
     }
 }

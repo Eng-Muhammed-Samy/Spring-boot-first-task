@@ -2,15 +2,12 @@ package com.fawry.ecommerceapp.mapper;
 
 import com.fawry.ecommerceapp.entity.Order;
 import com.fawry.ecommerceapp.model.OrderModel;
+import org.mapstruct.Mapper;
 
-public final class OrderMapper {
+@Mapper
+public interface OrderMapper {
 
-    public static OrderModel mapper(Order order){
-        OrderModel orderModel = new OrderModel();
-        orderModel.setId(order.getId());
-        orderModel.setShipping(order.getShipping());
-        orderModel.setTaxes(order.getTaxes());
-        orderModel.setTotalSalary(order.getTotalSalary());
-        return orderModel;
-    }
+    OrderModel mapper(Order order);
+
+    Order unMap(OrderModel orderModel);
 }
