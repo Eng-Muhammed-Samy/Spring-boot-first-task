@@ -35,7 +35,7 @@ public class Product extends BaseEntity<Long> {
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "order_id")
     )
-    private Set<Order> orders ;
+    private Set<Order> orders =new HashSet<>() ;
     @ManyToOne
     private Category category;
 

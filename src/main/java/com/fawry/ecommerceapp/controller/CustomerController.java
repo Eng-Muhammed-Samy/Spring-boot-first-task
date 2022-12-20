@@ -3,7 +3,6 @@ package com.fawry.ecommerceapp.controller;
 import com.fawry.ecommerceapp.entity.Customer;
 import com.fawry.ecommerceapp.service.implementation.CustomerServiceImple;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

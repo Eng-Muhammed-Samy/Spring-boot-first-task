@@ -4,6 +4,7 @@ package com.fawry.ecommerceapp.model;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -15,6 +16,6 @@ public class OrderModel implements Serializable {
 
     private Double totalSalary;
 
-    private Set<ProductModel> products;
+    private Set<ProductModel> products = new HashSet<>();
 
 }

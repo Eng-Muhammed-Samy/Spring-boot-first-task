@@ -2,12 +2,32 @@ package com.fawry.ecommerceapp.mapper;
 
 import com.fawry.ecommerceapp.entity.Product;
 import com.fawry.ecommerceapp.model.ProductModel;
-import org.mapstruct.Mapper;
+import org.springframework.stereotype.Component;
 
-@Mapper
-public interface ProductMapper {
+@Component
+public class ProductMapper {
 
-   ProductModel mapper(Product product);
+   public static ProductModel mapper(Product product){
+      ProductModel productModel = new ProductModel();
+      productModel.setId(product.getId());
+      productModel.setNameEn(product.getNameEn());
+      productModel.setNameAr(product.getNameAr());
+      productModel.setImgPath(product.getImgPath());
+      productModel.setQuantity(product.getQuantity());
+      productModel.setPrice(product.getPrice());
 
-   Product unMap(ProductModel productModel);
+      return productModel;
+   }
+
+  public static Product unMap(ProductModel productModel){
+     Product product = new Product();
+     product.setId(productModel.getId());
+     product.setNameEn(productModel.getNameEn());
+     product.setNameAr(productModel.getNameAr());
+     product.setImgPath(productModel.getImgPath());
+     product.setQuantity(productModel.getQuantity());
+     product.setPrice(productModel.getPrice());
+
+     return product;
+  }
 }
